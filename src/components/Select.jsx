@@ -1,4 +1,4 @@
-import { useId, React } from 'react'
+import React, { useId } from 'react'
 
 function Select({
   label,

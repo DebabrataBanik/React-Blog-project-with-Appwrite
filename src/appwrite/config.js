@@ -15,7 +15,7 @@ export class Service {
     this.buckets = new Storage(this.client)
   }
 
-  async createPost({ title, slug, content, status, image }) {
+  async createPost({ title, slug, content, status, image, userId }) {
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -26,6 +26,7 @@ export class Service {
           content,
           image,
           status,
+          userId,
         }
       )
     } catch (error) {
@@ -33,7 +34,7 @@ export class Service {
     }
   }
 
-  async UpdatePost(slug, { title, content, image, status }) {
+  async updatePost(slug, { title, content, image, status }) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -122,10 +123,10 @@ export class Service {
   filePreview(fileId) {
     return this.buckets.getFilePreview(
       conf.appwriteBucketId,
-      fileId
+      fileId,
     )
   }
 }
 
-const service = new Service
+const service = new Service()
 export default service

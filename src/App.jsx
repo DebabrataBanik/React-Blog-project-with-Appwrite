@@ -3,7 +3,7 @@ import { login, logout } from "./store/authSlice"
 import authService from "./appwrite/auth"
 import { useDispatch } from "react-redux"
 import { Header, Footer } from "./components"
-
+import { Outlet } from "react-router-dom"
 
 function App() {
 
@@ -28,14 +28,18 @@ function App() {
 
 
   return !loading ? (
-    <div>
-      <Header />
-      <Footer />
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </div>
-  ) : (
-    <div>Loading...</div>
-  )
+  ) : null
 
 }
 
 export default App
+
