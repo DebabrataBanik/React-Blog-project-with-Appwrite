@@ -9,8 +9,6 @@ export default function RTE({
   defaultValue = ''
 }) {
 
-  console.log(conf.tinymceApiKey)
-
   return (
     <div className='w-full'>
       {label && <label htmlFor={name} className='inline-bl0ck mb-1 pl-1'>{label}</label>}
