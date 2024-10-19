@@ -9,6 +9,7 @@ export default function RTE({
   defaultValue = ''
 }) {
 
+  console.log(conf.tinymceApiKey)
 
   return (
     <div className='w-full'>
