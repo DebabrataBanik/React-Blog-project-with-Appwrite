@@ -8,6 +8,8 @@ export default function RTE({
   defaultValue = ''
 }) {
 
+  const tinymceApiKey = import.meta.env.VITE_TINYMCE_API_KEY;
+
   return (
     <div className='w-full'>
       {label && <label htmlFor={name} className='inline-bl0ck mb-1 pl-1'>{label}</label>}
@@ -17,7 +19,7 @@ export default function RTE({
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
-            apiKey='c8q4a0dlw1a9xu1u1cw505s51ocwlmjak7i49c3z7bo8786x'
+            apiKey={tinymceApiKey}
             initialValue={defaultValue}
             init={
               {
